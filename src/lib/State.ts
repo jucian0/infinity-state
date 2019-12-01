@@ -54,7 +54,7 @@ export interface Context<TState> {
  */
 export class State<TContext extends Context<TContext['state']>>{
 
-    private context: TContext;
+    public context: TContext;
     private subscribers: Array<Subscribe<TContext["state"]>>;
     public mutations: Mutations<TContext["methods"]> &
         Mutations<TContext["services"]>
