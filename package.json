@@ -1,6 +1,6 @@
 {
   "name": "infinity-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for state management",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
