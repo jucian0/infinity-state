@@ -1,6 +1,6 @@
 import { State, Params } from './State';
 
-const { mutations, effects } = new State({
+const { mutations } = new State({
   state: 0,
   methods: {
     add: ({ state, payload }: Params<number, number>) => state + payload,
@@ -18,5 +18,4 @@ mutations.add(1);
 mutations.remove(2);
 mutations.not();
 mutations.opString('');
-
-effects.assync(2);
+mutations.assync(2);

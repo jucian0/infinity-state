@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * @param  {TContext} stateContext StateContext.
+ * @param  {(state:TContext['state'])=>TR} fn Function callback to change state value.
+ */
 export const useMutation = <TContext extends any, TR>(
   stateContext: TContext,
   fn: (state: TContext['state']) => TR
