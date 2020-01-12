@@ -11,7 +11,7 @@ export type Method<TState, TPayload = undefined> = (
   params: Params<TState, TPayload>
 ) => TState;
 
-type Methods<TState, TPayload = any> = {
+export type Methods<TState, TPayload = any> = {
   [x: string]: Method<TState, TPayload>;
 };
 

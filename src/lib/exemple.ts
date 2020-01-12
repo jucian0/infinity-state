@@ -1,4 +1,4 @@
-import { State, Params } from './State';
+import { State, Params } from './state';
 
 const { mutations } = new State({
   state: 0,
