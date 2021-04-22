@@ -162,4 +162,4 @@ Você pode ver o código fonte de um exemplo de implementação com fluxos assí
  * https://github.com/Jucian0/infininty-state-exemple
 
 Ou pode brincar com a aplicação no `CodeSandbox`
-* https://codesandbox.io/s/infinity-state-f5jhd
+* https://codesandbox.io/s/infinity-state-tkv6f
