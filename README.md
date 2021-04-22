@@ -25,20 +25,20 @@ Infinity-state é um pacote javascript que tem como objetivo prover um dado gere
 Usuário redux podem usar facilmente essa solução de gerenciamento de estado, pois o pacote é fortemente inspirado nele.
 
 
-### Criando um dado gerenciável
+## Criando um dado gerenciável
 
 Para criar um dado gerenciável é necessário criar um instancia da classe `State`, e passar um objeto para ele, a seguir será descrito a estrutura do objeto:
 
-#### state
+### state
 State é a key do objeto que recebe o dado que será gerenciado.
 
-#### methods
+### methods
 Methods é a key que recebe um objeto com as funções responsáveis por fazer as mutações no `state`.
 
-#### services
+### services
 Em alguns casos é necessário realizar algum processamento assíncrono antes de produzir alguma mutação no state. Por exemplo fazer um requisição http para uma api e depois que o processo assíncrono é resolvido em caso de sucesso ou falha o dado resultante precisa realizar alguma mutação no state. A key services recebe um objeto com as funções responsáveis por realizar esse trabalho.
 
-#### context
+### context
 Context é o nome dado a instancia de `State`, com esse objeto é possível obter o estado, se inscrever e obter as mutações que ocorrem no state, como o infinity-state exporta um hook para componentes react obter sempre a ultima versão do state a cada mutação a inscrita de eventos de mutação não é algo que deva se preocupar, a menos que queira criar hooks personalizados para sua necessidade.
 
 Context também possui um objeto chamado mutações que contem uma função para cada method ou service cadastrado, mais detalhes sobre essas funções serão dadas na próxima seção, por hora convém saber que elas são chamadas de `mutations` .
