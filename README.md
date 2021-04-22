@@ -47,7 +47,7 @@ Context também possui um objeto chamado mutações que contem uma função para
 Mutations são basicamente as `action criators` do ambiente redux, com a diferença que com elas não é preciso de tipos para diferenciar as intenções de mudanças no state e nem é necessário usar a função `dispatch` para que a ação seja disparada.
 
 ### Exemplo de uma função com fluxo assíncrono usando Promise:
-```
+```typescript
 const fetch: Service<TodosState> = ({state}) =>
   Axios.get('https://yourapi')
     .then(resp =>resp.data.map(item => item))
@@ -57,7 +57,7 @@ const fetch: Service<TodosState> = ({state}) =>
 ```
 
 ### Exemplo de uma função com fluxo assíncrono usando Rxjs:
-```
+```typescript
 const fetchRxjs: Service<TodosState, undefined, Subscription> = ({state}) =>
   from(Axios.get('https://yourapi'))
     .subscribe(
@@ -68,7 +68,7 @@ const fetchRxjs: Service<TodosState, undefined, Subscription> = ({state}) =>
 ```
 
 ### Exemplo de uma função com fluxo síncrono:
-```
+```typescript
 const success:Method<TodosState, Array<Todo>> = ({state, payload}) =>
   [...state, ...payload]
 ```
@@ -78,7 +78,7 @@ const success:Method<TodosState, Array<Todo>> = ({state, payload}) =>
 No exemplo esta sendo utilizado o `typescript`, sinta-se a vontade para utilizar `javascript`
 
 
-```
+```typescript
 export interface Todo {
   id: number
   text: string
@@ -133,11 +133,11 @@ export const context = new State({
 
 Como dito mutations é o caminho para realizar mutações no `state`, elas estão disponíveis na instancia de `new State`.
 
-```
+```typescript
 const {fetchPromise, reset} = context.mutations;
 ```
 
-```
+```typescript
 <form onSubmit={handleSubmit}>
     <input value={inputText} onChange={(e) => setInputText(e.target.value} />
     <button type="submit">Novo</button>
@@ -150,7 +150,7 @@ const {fetchPromise, reset} = context.mutations;
 
 useIState é um hook que possibilita receber as atualizações de state, esse hook recebe o `context` e uma função que serve para filtrar, alterar a porção de estado que se deseja receber.
 
-```
+```typescript
 const todos = useIState(
     context,
     state => state.todos
