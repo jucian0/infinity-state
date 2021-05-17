@@ -1,4 +1,4 @@
-import { useIState } from './hooks';
+import { useContext, useContextState } from './hooks';
 import { State, Params } from './state';
 
 const context = new State({
@@ -26,9 +26,10 @@ mutations.async(2);
 
 // Component
 
-
 function App(){
-  const state = useIState(context, state => state + 1)
+  const state0 = useContextState(context, state => state + 1)
+
+  const [state,{async}] = useContext(context,state=>state)
 
   return <span>{state}</span>
 }

@@ -65,7 +65,7 @@ export interface ObjectContext<TState> {
 }
 
 /**
- * A function that accepts an initial state, an object of methods, and object of services.
+ * A class that accepts an initial state, an object of methods, and object of services.
  * Methods object is an approach for sync operations.
  * Services object is an approach for async operations.
  *

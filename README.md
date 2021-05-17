@@ -157,6 +157,43 @@ const todos = useIState(
 )
 ```
 
+### Exemplo completo
+
+```typescript
+const context = new State({
+  state: 0,
+  methods: {
+    add: ({ state, payload }: Params<number, number>) => state + payload,
+    remove: ({ state, payload }: Params<number, number>) => state + payload,
+    not: ({ state }: Params<number>) => state,
+    opString: ({ state }: Params<number, string>) => state
+  },
+  services: {
+    async: ({ state, payload }: Params<number, number>) =>
+      Promise.resolve(state + payload)
+  }
+});
+
+const {mutations} = context
+
+mutations.add(1);
+mutations.remove(2);
+mutations.not();
+mutations.opString('');
+mutations.async(2);
+
+
+// Component
+
+function App(){
+  const state0 = useContextState(context, state => state + 1)
+
+  const [state,{async}] = useContext(context,state=>state)
+
+  return <span>{state}</span>
+}
+```
+
 ### Exemplo de implementação 
 Você pode ver o código fonte de um exemplo de implementação com fluxos assíncronos aqui:
  * https://github.com/Jucian0/infininty-state-exemple
