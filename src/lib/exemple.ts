@@ -1,6 +1,7 @@
+import { useIState } from './hooks';
 import { State, Params } from './state';
 
-const { mutations } = new State({
+const context = new State({
   state: 0,
   methods: {
     add: ({ state, payload }: Params<number, number>) => state + payload,
@@ -9,13 +10,25 @@ const { mutations } = new State({
     opString: ({ state }: Params<number, string>) => state
   },
   services: {
-    assync: ({ state, payload }: Params<number, number>) =>
+    async: ({ state, payload }: Params<number, number>) =>
       Promise.resolve(state + payload)
   }
 });
+
+const {mutations} = context
 
 mutations.add(1);
 mutations.remove(2);
 mutations.not();
 mutations.opString('');
-mutations.assync(2);
+mutations.async(2);
+
+
+// Component
+
+
+function App(){
+  const state = useIState(context, state => state + 1)
+
+  return <span>{state}</span>
+}
